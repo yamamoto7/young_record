@@ -1,4 +1,11 @@
 class Admins::GenreController < ApplicationController
+
+	def create
+		genre = Genre.new(genre_param)
+		genre.save
+		# redirect_to genre一覧
+	end
+
 	def index
 		@genre = Genre.new
 		@genres = Genre.all
