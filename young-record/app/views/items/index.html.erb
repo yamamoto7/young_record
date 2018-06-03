@@ -1,0 +1,9 @@
+<%= form_tag(items_path, method: :get) do %>
+	<%= text_field_tag :search, params[:search] %>
+	<%= submit_tag "商品を検索", name: nil %>
+<% end %>
+
+<% @items.each do |item| %>
+	<%= item.name %>
+	<%= link_to "商品詳細", item_path(item) %>
+<% end %>
