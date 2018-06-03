@@ -33,9 +33,19 @@ item
 </table> -->
   <%= f.submit %>
 <% end %>
-
-<% @items = Item.all %>
-<% @items.each do |f| %>
+item
+<% Item.all.each do |f| %>
 <%= f.name %>
+<% end %>
 
+<br>
+cd
+<% Cd.all.each do |f| %>
+<%= f.name %>
+<% end %>
+
+<br>
+song
+<% Song.all.each do |f| %>
+<%= f.name %>
 <% end %>

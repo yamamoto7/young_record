@@ -4,8 +4,7 @@ class Admins::ItemsController < ApplicationController
 	end
 	def new
 		@item = Item.new
-		@item.cds.build
-		
+		@item.cds.build.songs.build
 	end
 	def edit
 		
@@ -18,10 +17,10 @@ class Admins::ItemsController < ApplicationController
 
 	private
 	def item_params
-		params.require(:item).permit(:price, :count, :cd_number, :name, :artist_name, :label_name, :text_id, :frag,
-			cds_attributes: [:id, :name],
-			songs_attributes: [:id, :name]
-			)
+		params.require(:item).permit(:price, :count, :cd_number, :name, :artist_name, :label_name, :text_id, :frag,{
+			cds_attributes: [:id, :name,{
+				songs_attributes: [:id, :name]
+			}]})
 		
 	end
 end
