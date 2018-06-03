@@ -1,2 +1,0 @@
-module Admins::HistoriesHelper
-end

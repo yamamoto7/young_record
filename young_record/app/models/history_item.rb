@@ -1,2 +1,0 @@
-class HistoryItem < ApplicationRecord
-end
