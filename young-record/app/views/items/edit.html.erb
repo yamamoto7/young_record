@@ -1,0 +1,6 @@
+test
+<%= form_for(@item) do |f| %>
+	<%= f.text_field :name %>
+	<%= f.select :genre_id %>
+	<%= f.submit "編集" %>
+	<% end %>

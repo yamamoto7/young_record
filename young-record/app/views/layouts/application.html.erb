@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>YoungRecord</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <div class="header-top">
+      <div class="top_in">
+        <p class="Top_title">Young Record・送料・手数料・代金・全て無料！！！史上最高のCDショップ
+        </p>
+      </div>
+    </div>
+
+  	<div class="header">
+  		<div class="header_in">
+  			<nav class="nav-list">
+  				<ul>
+  					<li class="glyphicon glyphicon-shopping-cart"></li>
+  				</ul>
+  			</nav>
+  		</div>
+  	</div>
+
+    <%= yield %>
+  </body>
+</html>
