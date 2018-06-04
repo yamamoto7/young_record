@@ -1,1 +1,15 @@
-ジャンル詳細
+<div class="wrapper">
+    <h3><%= @genre.name %>の商品一覧</h3>
+    <table>
+        <tr>
+            <th>商品名</th>
+            <th>アーティスト名</th>
+        </tr>
+        <% @items.each do |i| %>
+            <tr>
+                <td><%= link_to i.name, item_path(i.id) %></td>
+                <td><%= i.artist_name %></td>
+            </tr>
+        <% end %>
+    </table>
+</div>
