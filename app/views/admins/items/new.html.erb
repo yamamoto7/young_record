@@ -1,38 +1,52 @@
 商品追加
 
+
+
+
+
+
+
 <%= form_for(@item, url: admins_items_path) do |f| %>
-item
-  <%= f.text_field :name %>
+<%= f.text_field :name %>
+<%= f.nested_fields_for :cds, wrapper_tag: :table do |q| %>
 
-  <%= f.fields_for :cds do |cd| %>
-  cd
-  	<%= cd.text_field :name %>
-
-	<!-- 商品の中のCDの中の曲 -->
-    <%= cd.fields_for :songs do |song| %>
-    song
-  	  <%= song.text_field :name %>
+  <tbody>
+    <tr>
+      <td>CD名</td>
+      <td><%= q.text_field :name %></td>
+      <td><%= q.add_nested_fields_link :songs, '曲追加', role: 'button' %></td>
+      <td><%= q.remove_nested_fields_link 'Delete', role: 'button' %></td>
+    </tr>
+    <tr>
+      <td>曲名</td>
+      <td>アーティスト名</td>
+      <td>時間</td>
+      <td></td>
+    </tr>
+    <%= q.nested_fields_for :songs, wrapper_tag: :tr do |r| %>
+        <td><%= r.text_field :name %></td>
+        <td><%= r.text_field :artist_name %></td>
+        <td><%= r.text_field :time %></td>
+        <td><%= r.remove_nested_fields_link 'Delete', role: 'button' %></td>
     <% end %>
-
-  <% end %>
-
-<!-- <table>
-<tr>
-<td class="repeater">
-    <label>ディスク名</label><br>
-    <input type="text" name="disc_name" />
-    <input type="button" value="ディスクを削除" />
-    <label>曲名</label><br>
-        <input type="text" name="song_title" />
-        <input type="time" name="song_time" required/>
-        <input type="button" value="曲を削除" />
-    <input type="button" value="曲を追加" />
-    <input type="button" value="ディスクを追加" />
-</td>
-</tr>
-</table> -->
-  <%= f.submit %>
+  </tbody>
 <% end %>
+まだできない。→
+<%= f.add_nested_fields_link :cds, 'CD追加', role: 'button' %>
+<%= f.submit %>
+<% end %>
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 item
 <% Item.all.each do |f| %>
 <%= f.name %>
@@ -49,3 +63,6 @@ song
 <% Song.all.each do |f| %>
 <%= f.name %>
 <% end %>
+<script type="text/javascript">
+
+</script>

@@ -9,6 +9,19 @@
   </head>
 
   <body>
+  	<header>
+        <a href="/" class="header-logo">LOGO</a>
+        <div class="header-btn">
+	        <% if current_user %>
+    	        <a href="/users/carts" class="header-btn-item">カート</a>
+            <% else %>
+        	    <a href="/users/sign_in" class="header-btn-item">login</a>
+            	<a href="/users/sign_up" class="header-btn-item">sign up</a>
+            <% end %>
+        </div>
+    </header>
+    <main>
     <%= yield %>
+	</main>
   </body>
 </html>
