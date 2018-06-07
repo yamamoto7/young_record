@@ -1,1 +1,37 @@
-ジャンル一覧
+<div class="wrapper">
+    <h3>ジャンル一覧</h3>
+
+    <%= form_for(@genre) do |f| %>
+    	<% if @genre.errors.any? %>
+    		<div id="error_explanation">
+    			<h2><%= pluralize(@genre.errors.count, "error") %> prohibited this genre from being saved:</h2>
+    			<ul>
+    				<% @genre.errors.full_messages.each do |message| %>
+    					<li><%= message %></li>
+    				<% end %>
+    			</ul>
+    		</div>
+    	<% end %>
+    	<div class="field">
+    		<%= f.label :name %><br>
+    		<%= f.text_field :name %>
+    	</div>
+    	<div class="actions">
+    		<%= f.submit %>
+    	</div>
+    <% end %>
+
+    <table>
+        <tr>
+            <th>詳細</th>
+            <th>名称変更</th>
+        </tr>
+        <% @genres.each do |genre| %>
+	        <tr>
+	            <td><%= link_to genre.name, admins_genre_path(genre.id) %></td>
+	            <td><%= link_to, "編集" admins_genre_index_path %></td>
+	        </tr>
+		<% end %>
+
+    </table>
+</div>
