@@ -7,7 +7,7 @@ class CreateItems < ActiveRecord::Migration[5.1]
     	t.string :name
     	t.string :artist_name
     	t.string :label_name
-    	t.text :image_id
+    	t.string :image_id
     	t.boolean :frag
 
       t.timestamps
