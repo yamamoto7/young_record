@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 20180510032825) do
     t.string "name"
     t.string "artist_name"
     t.string "label_name"
-    t.text "image_id"
+    t.string "image_id"
     t.boolean "frag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
