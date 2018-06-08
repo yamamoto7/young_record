@@ -9,6 +9,9 @@ class Admins::ItemsController < ApplicationController
 	def edit
 		@item = Item.find(params[:id])
 	end
+	def edit_cds
+		@item = Item.find(params[:id])
+	end
 	def update
 		item = Item.find(params[:id])
     	item.update(item_params)

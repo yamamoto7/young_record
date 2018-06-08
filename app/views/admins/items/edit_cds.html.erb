@@ -3,7 +3,10 @@
 
 
 
-<%= form_for(@item, url: admins_items_path) do |f| %>
+
+
+
+<%= form_for(@item, url: admins_item_path) do |f| %>
 <%= f.text_field :name %>
 <%= f.attachment_field :image %>
  
@@ -20,3 +23,5 @@
 <%= f.add_nested_fields_link :cds, 'CD追加', role: 'button' %>
 <%= f.submit %>
 <% end %>
+
+

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :histories, only: [:index, :show]
     resources :items, only: [:index, :new, :edit, :create, :update]
     resources :users, only: [:index, :show]
+    get 'items/:id/edit_cds' => 'items#edit_cds', as: 'edit_cds'
   end
 
   devise_for :users, controllers: {
