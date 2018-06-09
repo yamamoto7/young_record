@@ -27,7 +27,40 @@ a{
 main{
 	padding: 150px 100px 50px;
 }
+.clearfix:after{
+	content: " ";
+	display: block;
+	clear: both;
+}
 
+/* ---------- */
+/* division */
+/* ---------- */
+
+.box-div-20{
+	float: left;
+	width: 20%;
+}
+.box-div-30{
+	float: left;
+	width: 30%;
+}
+.box-div-40{
+	float: left;
+	width: 40%;
+}
+.box-div-60{
+	float: left;
+	width: 60%;
+}
+.box-div-70{
+	float: left;
+	width: 70%;
+}
+.box-div-80{
+	float: left;
+	width: 80%;
+}
 
 
 /* ---------- */

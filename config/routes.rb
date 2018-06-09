@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root to: 'items#top'
   resources :items, only: [:index, :show]
+  post 'items/index' => 'items#index', as: 'items_search'
 	
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',

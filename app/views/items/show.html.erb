@@ -1,1 +1,84 @@
 商品詳細
+
+<%= attachment_image_tag(@item, :image, :fill, 100, 100, fallback: "no_image.jpg") %>
+
+
+<%= @item.name %>
+
+<% @item.cds.each do |f| %>
+<%= f.name %>
+<% f.songs.each do |g| %>
+<%= g.name %>
+<% end %>
+<% end %>
+
+
+
+    <main>
+        <div class="wrapper clearfix">
+        <div class="box-div-40 show-image">
+            <%= attachment_image_tag(@item, :image, :fill, 100, 100, fallback: "no_image.jpg") %>
+
+        </div>
+        <div class="box-div-60 show-info">
+            <h3>きゃりーベストアルバム</h3>
+            <table>
+                <tr>
+                    <td>artist</td>
+                    <td><%= @item.artist_name %></td>
+                </tr>
+                <tr>
+                    <td>label</td>
+                    <td><%= @item.artist_name %></td>
+                </tr>
+                <tr>
+                    <td>price</td>
+                    <td>1,280en</td>
+                </tr>
+            </table>
+            <div class="show-add-btn">add to cart</div>
+        </div>
+        </div>
+
+
+        <div class="wrapper clearfix">
+            <div class="box-div-30">
+                <div>Disk1</div>
+            </div>
+
+            <div class="box-div-70">
+                <table class="show-table">
+                    <tr>
+                        <td>song name</td>
+                        <td>artist</td>
+                    </tr>
+                    <tr>
+                        <td>にんじゃりばんばん</td>
+                        <td>きゃりーぱみゅぱみゅ</td>
+                    </tr>
+                    <tr>
+                        <td>にんじゃりばんばん</td>
+                        <td>きゃりーぱみゅぱみゅ</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+            <div class="wrapper clearfix">
+            <div class="box-div-30">
+                <div>Disk2</div>
+            </div>
+
+            <div class="box-div-70">
+                <table class="show-table">
+                    <tr>
+                        <td>song name</td>
+                        <td>artist</td>
+                    </tr>
+                    <tr>
+                        <td>にんじゃりばんばん</td>
+                        <td>きゃりーぱみゅぱみゅ</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </main>
