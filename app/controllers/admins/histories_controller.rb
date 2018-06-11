@@ -12,7 +12,13 @@ class Admins::HistoriesController < ApplicationController
 	end
 
 	def update
-		@history = Hi
+		@history = History.find(oarams[:id])
+		@history.update(history_params)
+		redirect_to admins_history_path(@history.id)
 	end
 
+	private
+	def history_params
+		params.require(:history).permit(:status)
+	end
 end
