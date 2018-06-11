@@ -1,1 +1,27 @@
-履歴詳細
+<div class="wrapper">
+    <table>
+        <tr>
+            <th>日付</th>
+            <th>時間</th>
+            <th>発送ステータス</th>
+            <th></th>
+            <th>氏名</th>
+            <th></th>
+        </tr>
+        <% @histories.each do |h| %>
+            <tr>
+                <td><%= h.created_at.strftime('%Y/%m/%d') %></td>
+                <td><%= h.created_at.strftime('%H:%M') %></td>
+                <%= form_tag(admins_history_path, method: "patch") do %>
+                    <%= select_tag :status, options_for_select(History.statuses), include_blank: true %>
+                    <%= submit_tag "変更を保存" %>
+                <% end %>
+                <td>h.status</td>
+                <td></td>
+                <td><%= link_to h.user.name_char, admins_user_path(h.user_id) %></td>
+                <td><%= link_to "詳細", admins_history_path(h.id) %></td>
+            </tr>
+        <% end %>
+    </table>
+    <input type="submit" value="更新">
+</div>
