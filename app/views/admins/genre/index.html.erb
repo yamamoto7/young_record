@@ -1,7 +1,7 @@
 <div class="wrapper">
     <h3>ジャンル一覧</h3>
 
-    <%= form_for(@genre, admins_genre_path(@genre)) do |f| %>
+    <%= form_for(@genre, admins_genre_index_path do |f| %>
         <% if @genre.errors.any? %>
             <div id="error_explanation">
                 <h2><%= pluralize(@genre.errors.count, "error") %> prohibited this genre from being saved:</h2>
