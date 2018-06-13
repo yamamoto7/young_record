@@ -1,27 +1,31 @@
 <div class="wrapper">
-    <table>
-        <tr>
-            <th>日付</th>
-            <th>時間</th>
-            <th>発送ステータス</th>
-            <th></th>
-            <th>氏名</th>
-            <th></th>
-        </tr>
-        <% @histories.each do |h| %>
-            <tr>
-                <td><%= h.created_at.strftime('%Y/%m/%d') %></td>
-                <td><%= h.created_at.strftime('%H:%M') %></td>
-                <%= form_tag(admins_history_path, method: "patch") do %>
-                    <%= select_tag :status, options_for_select(History.statuses), include_blank: true %>
-                    <%= submit_tag "変更を保存" %>
-                <% end %>
-                <td>h.status</td>
-                <td></td>
-                <td><%= link_to h.user.name_char, admins_user_path(h.user_id) %></td>
-                <td><%= link_to "詳細", admins_history_path(h.id) %></td>
-            </tr>
+    <% @history.each do |h| %>
+        <p><%= h.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+        <p>発送ステータス</p>
+        <%= form_tag(admins_history_path, method: "patch") do %>
+            <%= select_tag :status, options_for_select(History.statuses), include_blank: true %>
+            <%= submit_tag "更新" %>
         <% end %>
-    </table>
-    <input type="submit" value="更新">
+        <br>
+
+        <h1>お客様情報</h1>
+        <tabe>
+            <tr>
+                <td>氏名</td>
+                <td><%= link_to h.users.name_char, admins_user_path(h.user_id) %></td>
+            </tr>
+            <tr>
+                <td>電話番号</td>
+                <td><%= h.users.tell %></td>
+            </tr>
+            <tr>
+                <td>郵便番号</td>
+                <td><%= h.user_post %></td>
+            </tr>
+            <tr>
+                <td>住所</td>
+                <td><%= h.user_address %></td>
+            </tr>
+        </tabe>
+    <% end %>
 </div>

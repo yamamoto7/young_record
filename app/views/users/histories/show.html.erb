@@ -1,1 +1,34 @@
-ユーザー履歴詳細
+<!-- ユーザー履歴詳細 -->
+
+<div class="wrapper">
+    <% @history.each do |h| %>
+    	<h1>商品情報</h1>
+        <p><%= h.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+        <p>発送ステータス</p>
+        <%= form_tag(admins_history_path, method: "patch") do %>
+            <%= select_tag :status, options_for_select(History.statuses), include_blank: true %>
+            <%= submit_tag "更新" %>
+        <% end %>
+        <br>
+
+        <h1>お客様情報</h1>
+        <tabe>
+            <tr>
+                <td>氏名</td>
+                <td><%= link_to h.users.name_char, admins_user_path(h.user_id) %></td>
+            </tr>
+            <tr>
+                <td>電話番号</td>
+                <td><%= h.users.tell %></td>
+            </tr>
+            <tr>
+                <td>郵便番号</td>
+                <td><%= h.user_post %></td>
+            </tr>
+            <tr>
+                <td>住所</td>
+                <td><%= h.user_address %></td>
+            </tr>
+        </tabe>
+    <% end %>
+</div>
