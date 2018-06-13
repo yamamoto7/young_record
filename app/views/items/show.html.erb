@@ -12,6 +12,13 @@
                 <td><%= @item.artist_name %></td>
             </tr>
             <tr>
+                <td>genre</td>
+                <td><% @item.items_genres.each do |f| %>
+                    <%= f.genre.name %>
+                    <% end %>
+                </td>
+            </tr>
+            <tr>
                 <td>label</td>
                 <td><%= @item.label_name %></td>
             </tr>

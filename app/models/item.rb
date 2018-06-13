@@ -3,6 +3,7 @@ class Item < ApplicationRecord
 	has_many :cds
 
   has_many :items_genres
+  accepts_nested_attributes_for :items_genres, allow_destroy: true
   has_many :genres, through: :items_genres
 
   has_many :histories
