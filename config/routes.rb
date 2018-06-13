@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   }
   resource :users, only: [:index, :show]
   namespace :users do
-    resources :carts, only: [:index]
+    resources :carts, only: [:index, :create]
     get 'carts/buy' => 'carts#buy'
     get 'carts/thanks' => 'carts#thanks'
     resources :histories, only: [:index, :show]

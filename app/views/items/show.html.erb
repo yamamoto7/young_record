@@ -5,7 +5,7 @@
 
     </div>
     <div class="box-div-60 show-info">
-        <h3>きゃりーベストアルバム</h3>
+        <h3><%= @item.name %></h3>
         <table>
             <tr>
                 <td>artist</td>
@@ -20,7 +20,11 @@
                 <td><%= @item.price %></td>
             </tr>
         </table>
-        <div class="show-add-btn">add to cart</div>
+        <%= form_for(@cart, url: users_carts_path) do |f| %>
+            <%= hidden_field_tag :item_id, @item.id %>
+            <%= select_tag 'count[count]', options_for_select(["1", "2", "3", "4", "5"]) %>
+            <%= f.submit 'Add to Cart', :class=>"show-add-btn" %>
+        <% end %>
     </div>
     </div>
 
