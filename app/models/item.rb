@@ -1,8 +1,12 @@
 class Item < ApplicationRecord
 	attachment :image, destroy: false
 	has_many :cds
-  has_many :item_genres
+
+  has_many :items_genres
+  has_many :genres, through: :items_genres
+
   has_many :histories
+
 	accepts_nested_attributes_for :cds, allow_destroy: true
 	# accepts_nested_attributes_for :songs, allow_destroy: true
 def self.search(search) #ここでのself.はUser.を意味する
