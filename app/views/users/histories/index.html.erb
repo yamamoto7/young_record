@@ -12,7 +12,7 @@
             <tr>
                 <td><%= h.created_at.strftime('%Y/%m/%d %H:%M') %></td>
                 <td><%= h.sum %></td>
-                <td><%= h.history_items.items.name %></td>
+                <td><%= h.item.name %></td>
                 <td><%= h.status %></td>
                 <td><%= link_to "詳細", users_history_path(h.id) %></td>
             </tr>

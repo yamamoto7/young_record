@@ -6,7 +6,9 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :items_genres, allow_destroy: true
   has_many :genres, through: :items_genres
 
-  has_many :histories
+  has_many :history_items
+  has_many :histories, through: :history_items
+
   has_many :carts
 	accepts_nested_attributes_for :cds, allow_destroy: true
 	# accepts_nested_attributes_for :songs, allow_destroy: true
