@@ -6,9 +6,10 @@
 <%= form_for(@item, url: admins_items_path) do |f| %>
 <%= f.text_field :name %>
 <%= f.attachment_field :image %>
-
-<%= f.nested_fields_for :items_genres, wrapper_tag: :table do |q| %>
+<br>
+<%= f.nested_fields_for :items_genres, wrapper_tag: :div do |q| %>
 	<%= q.select :genre_id, Genre.all.map{|o| [o.name, o.id]} %>
+	<%= q.remove_nested_fields_link 'ジャンル削除', role: 'button' %>
 <% end %>
 <%= f.add_nested_fields_link :items_genres, 'ジャンル追加', role: 'button' %>
 
