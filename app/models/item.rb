@@ -3,6 +3,7 @@ class Item < ApplicationRecord
 	has_many :cds
   has_many :item_genres
   has_many :histories
+  has_many :carts
 	accepts_nested_attributes_for :cds, allow_destroy: true
 	# accepts_nested_attributes_for :songs, allow_destroy: true
 def self.search(search) #ここでのself.はUser.を意味する
