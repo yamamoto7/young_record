@@ -1,1 +1,25 @@
 検索ページ
+
+<%= form_tag(items_search_path) do %>
+  <%= text_field_tag :search %>
+  <%= submit_tag 'Search', :name => nil %>
+<% end %>
+<table class="item-index">
+	<tr>
+		<td>画像</td>
+		<td>商品名</td>
+		<td>掲載ページ</td>
+		<td>編集</td>
+	</tr>
+	<% @items.each do |f| %>
+	<tr>
+		<td>
+			<%= attachment_image_tag(f, :image, :fill, 100, 100, fallback: "no_image.jpg") %>
+		</td>
+		<td><%= f.name %></td>
+		<td><%= link_to "詳細", item_path(f) %></td>
+		<td><%= link_to "編集", edit_admins_item_path(f) %></td>
+	</tr>
+	<% end %>
+</table>
+

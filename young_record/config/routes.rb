@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   root to: 'items#top'
   resources :items, only: [:index, :show]
-	
+  post 'items/index' => 'items#index', as: 'items_search'
+
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
     passwords:     'admins/passwords',
@@ -10,10 +11,11 @@ Rails.application.routes.draw do
   }
   resource :admins, only: [:index]
   namespace :admins do
-    resources :genre, only: [:index, :show]
-    resources :histories, only: [:index, :show]
-    resources :items, only: [:index, :new, :edit, :create]
+    resources :genre, only: [:index, :show, :create, :update]
+    resources :histories, only: [:index, :show, :update]
+    resources :items, only: [:index, :new, :edit, :create, :update]
     resources :users, only: [:index, :show]
+    get 'items/:id/edit_cds' => 'items#edit_cds', as: 'edit_cds'
   end
 
   devise_for :users, controllers: {
@@ -23,7 +25,7 @@ Rails.application.routes.draw do
   }
   resource :users, only: [:index, :show]
   namespace :users do
-    resources :carts, only: [:index]
+    resources :carts, only: [:index, :create]
     get 'carts/buy' => 'carts#buy'
     get 'carts/thanks' => 'carts#thanks'
     resources :histories, only: [:index, :show]

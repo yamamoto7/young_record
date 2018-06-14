@@ -1,0 +1,27 @@
+商品追加
+
+
+
+
+
+
+
+<%= form_for(@item, url: admins_item_path) do |f| %>
+<%= f.text_field :name %>
+<%= f.attachment_field :image %>
+ 
+<%= f.nested_fields_for :cds, wrapper_tag: :table do |q| %>
+
+  <tbody>
+    <tr>
+      <td>ディスク名</td>
+      <td><%= q.text_field :name %></td>
+      <td><%= q.remove_nested_fields_link 'ディスク削除', role: 'button' %></td>
+    </tr>
+  </tbody>
+<% end %>
+<%= f.add_nested_fields_link :cds, 'CD追加', role: 'button' %>
+<%= f.submit %>
+<% end %>
+
+

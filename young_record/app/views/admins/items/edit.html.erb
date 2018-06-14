@@ -1,1 +1,41 @@
 商品編集
+
+
+<%= form_for(@item, url: admins_item_path(@item.id)) do |f| %>
+<%= f.text_field :name %>
+<%= f.attachment_field :image %>
+<br>
+<%= f.nested_fields_for :items_genres, wrapper_tag: :table do |q| %>
+  <%= q.select :genre_id, Genre.all.map{|o| [o.name, o.id]} %>
+  <%= q.remove_nested_fields_link 'ジャンル削除', role: 'button' %>
+<% end %>
+<%= f.add_nested_fields_link :items_genres, 'ジャンル追加', role: 'button' %>
+
+
+<%= f.nested_fields_for :cds, wrapper_tag: :table do |q| %>
+
+  <tbody>
+    <tr>
+      <td>CD名</td>
+      <td><%= q.text_field :name %></td>
+      <td><%= q.add_nested_fields_link :songs, '曲追加', role: 'button' %></td>
+    </tr>
+    <tr>
+      <td>曲名</td>
+      <td>アーティスト名</td>
+      <td>時間</td>
+      <td></td>
+    </tr>
+    <%= q.nested_fields_for :songs, wrapper_tag: :tr do |r| %>
+        <td><%= r.text_field :name %></td>
+        <td><%= r.text_field :artist_name %></td>
+        <td><%= r.text_field :time %></td>
+        <td><%= r.remove_nested_fields_link 'Delete', role: 'button' %></td>
+    <% end %>
+  </tbody>
+<% end %>
+<%= f.submit %>
+<% end %>
+
+
+<%= link_to "CD追加、削除はこちら" ,admins_edit_cds_path(@item) %>

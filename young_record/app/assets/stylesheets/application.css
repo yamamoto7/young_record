@@ -13,3 +13,89 @@
  *= require_tree .
  *= require_self
  */
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+ul{
+	list-style:none;
+}
+a{
+	text-decoration: none;
+}
+main{
+	padding: 150px 100px 50px;
+}
+.clearfix:after{
+	content: " ";
+	display: block;
+	clear: both;
+}
+
+/* ---------- */
+/* division */
+/* ---------- */
+
+.box-div-20{
+	float: left;
+	width: 20%;
+}
+.box-div-30{
+	float: left;
+	width: 30%;
+}
+.box-div-40{
+	float: left;
+	width: 40%;
+}
+.box-div-60{
+	float: left;
+	width: 60%;
+}
+.box-div-70{
+	float: left;
+	width: 70%;
+}
+.box-div-80{
+	float: left;
+	width: 80%;
+}
+
+
+/* ---------- */
+/* header */
+/* ---------- */
+
+header{
+	background-color: rgba(0,0,0,0.4);
+	position: fixed;
+	width: 100%;
+	height: 100px;
+	padding: 0 40px;
+	z-index: 100;
+}
+header a:hover{
+	background-color: rgba(255,255,255,0.2);
+}
+.header-logo{
+	font-size: 35px;
+	height: 100px;
+	line-height: 100px;
+	float: left;
+	color: #FFFFFF;
+}
+.header-btn{
+	float: right;
+
+}
+.header-btn-item{
+	display: block;
+	float: left;
+	width: 100px;
+	height: 100px;
+	line-height: 100px;
+	color: #FFFFFF;
+	text-align: center;
+	transition: background-color .5s;
+}

@@ -1,1 +1,22 @@
-ユーザー履歴一覧
+<!-- ユーザー履歴一覧 -->
+<div class="wrapper">
+    <table>
+        <tr>
+            <th>注文日</th>
+            <th>合計</th>
+            <th>商品名</th>
+            <th>発送状況</th>
+            <th></th>
+        </tr>
+        <% @histories.each do |h| %>
+            <tr>
+                <td><%= h.created_at.strftime('%Y/%m/%d %H:%M') %></td>
+                <td><%= h.sum %></td>
+                <td><%= h.item.name %></td>
+                <td><%= h.status %></td>
+                <td><%= link_to "詳細", users_history_path(h.id) %></td>
+            </tr>
+        <% end %>
+    </table>
+    <input type="submit" value="更新">
+</div>

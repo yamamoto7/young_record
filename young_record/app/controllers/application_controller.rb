@@ -9,12 +9,17 @@ class ApplicationController < ActionController::Base
                                :name_kana,
                                :post,
                                :address,
-                               :tell])
+                               :tell,
+                               :address_prefecture,
+                               :address_city,
+                               :address_building])
     devise_parameter_sanitizer.permit(:account_update, keys: [:name_char,
                                :name_kana,
                                :post,
                                :address,
-                               :tell])
-
+                               :tell,
+                               :address_prefecture,
+                               :address_city,
+                               :address_building])
   end
 end
