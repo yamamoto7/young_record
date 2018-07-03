@@ -2,7 +2,13 @@
 
 
 <%= form_for(@item, url: admins_item_path(@item.id)) do |f| %>
-<%= f.text_field :name %>
+タイトル<%= f.text_field :name %><br>
+在庫数<%= f.text_field :count %><br>
+価格<%= f.text_field :price %><br>
+アーティスト名<%= f.text_field :artist_name %><br>
+レーベル名<%= f.text_field :label_name %><br>
+<%= select_tag :frag, options_for_select(["販売する", "販売停止"], ["true", "false"]) %>
+
 <%= f.attachment_field :image %>
 <br>
 <%= f.nested_fields_for :items_genres, wrapper_tag: :table do |q| %>
