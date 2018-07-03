@@ -2,13 +2,7 @@
 
 
 <%= form_for(@item, url: admins_item_path(@item.id)) do |f| %>
-タイトル<%= f.text_field :name %><br>
-在庫数<%= f.text_field :count %><br>
-価格<%= f.text_field :price %><br>
-アーティスト名<%= f.text_field :artist_name %><br>
-レーベル名<%= f.text_field :label_name %><br>
-<%= select_tag :frag, options_for_select(["販売する", "販売停止"], ["true", "false"]) %>
-
+<%= f.text_field :name %>
 <%= f.attachment_field :image %>
 <br>
 <%= f.nested_fields_for :items_genres, wrapper_tag: :table do |q| %>
@@ -17,6 +11,24 @@
 <% end %>
 <%= f.add_nested_fields_link :items_genres, 'ジャンル追加', role: 'button' %>
 
+<table>
+  <tr>
+      <td>値段</td>
+      <td><%= f.text_field :price %></td>
+    </tr>
+  <tr>
+      <td>在庫数</td>
+      <td><%= f.text_field :count %></td>
+    </tr>
+  <tr>
+      <td>アーティスト名</td>
+      <td><%= f.text_field :artist_name %></td>
+    </tr>
+  <tr>
+      <td>レーベル名</td>
+      <td><%= f.text_field :label_name %></td>
+    </tr>
+</table>
 
 <%= f.nested_fields_for :cds, wrapper_tag: :table do |q| %>
 
