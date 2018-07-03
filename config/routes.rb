@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     resources :carts, only: [:index, :create]
     get 'carts/buy' => 'carts#buy'
     get 'carts/thanks' => 'carts#thanks'
-    resources :histories, only: [:index, :show]
+    resources :histories, only: [:index, :show, :create]
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
