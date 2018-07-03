@@ -4,7 +4,8 @@
 
 
 <%= form_for(@item, url: admins_items_path) do |f| %>
-<%= f.text_field :name %>
+タイトル<%= f.text_field :name %><br>
+在庫数<%= f.text_field :count %><br>
 <%= f.attachment_field :image %>
 <br>
 <%= f.nested_fields_for :items_genres, wrapper_tag: :div do |q| %>
