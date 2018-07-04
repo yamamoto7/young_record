@@ -30,6 +30,8 @@ class Users::HistoriesController < ApplicationController
 		end
 		# sumを変更したので更新
 		history.update(history_params)
+
+		redirect_to users_carts_thanks_path
 	end
 
 	private
