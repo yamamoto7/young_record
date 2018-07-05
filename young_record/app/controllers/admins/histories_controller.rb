@@ -1,4 +1,5 @@
 class Admins::HistoriesController < ApplicationController
+	before_action :authenticate_admin!
 
 	def index
 		@histories = History.all

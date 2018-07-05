@@ -1,0 +1,25 @@
+ユーザー一覧
+<table border="1">
+	<thead>
+		<tr>
+			<th>名前(漢字)</th>
+			<th>名前（カナ）</th>
+			<th>メールアドレス</th>
+			<th>郵便番号</th>
+			<th>住所</th>
+			<th>電話番号</th>
+		</tr>
+	</thead>
+	<tbody>
+			<% @users.each do |user| %>
+		<tr>
+			<td><%= link_to user.name_char, admins_user_path(user) %></td>
+			<td><%= user.name_kana%></td>
+			<td><%= user.email%></td>
+			<td><%= user.post%></td>
+			<td><%= user.address%></td>
+			<td><%= user.tell%></td>
+		</tr>
+			<% end -%>
+	</tbody>
+</table>

@@ -1,0 +1,9 @@
+氏名:<%= current_user.name_char %><br>
+カナ名: <%= current_user.name_kana %><br>
+〒:<%= current_user.post %> <br>
+住所:<%= current_user.address %><br>
+Tell:<%= current_user.tell %><br>
+email: <%= current_user.email %><br>
+<%= link_to "編集",  edit_user_registration_path %><br>
+<%= link_to "購入履歴", "#" %><br>
+<%= link_to "退会", destroy_user_session_path, method: :delete, data: { confirm: '本当に退会しますか?しないで、欲しいな。。。。' } %><br>

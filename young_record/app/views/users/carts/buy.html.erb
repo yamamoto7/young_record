@@ -1,1 +1,57 @@
 購入確認ページ
+
+
+
+購入を確定してもよろしいですか
+
+<%= link_to "はい", users_histories_path, :method => :post %>
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+以下確認用
+<br>
+his
+<% h = current_user.histories %>
+<table>
+<% h.each do |f| %>
+<tr>
+	<td><%= f.id %></td>
+	<td>sum<%= f.sum %></td>
+	<td>ad<%= f.user_address %></td>
+	<td>po<%= f.user_post %></td>
+</tr>
+<% end %>
+</table>
+
+his_items
+<% i = HistoryItem.all %>
+<table>
+<% i.each do |f| %>
+<tr>
+	<td><%= f.id %></td>
+	<td><%= f.item_id %></td>
+	<td><%= f.cart_count %></td>
+	<td><%= f.cart_price %></td>
+</tr>
+<% end %>
+</table>
+
+cart_items
+<% i = current_user.carts.all %>
+<table>
+<% i.each do |f| %>
+<tr>
+	<td><%= f.id %></td>
+	<td><%= f.item_id %></td>
+	<td><%= f.count %></td>
+</tr>
+<% end %>
+</table>
+
