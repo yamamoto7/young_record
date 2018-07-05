@@ -2,7 +2,7 @@ class Users::CartsController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
-		
+		@items =Item.all
 	end
 	def buy
 		

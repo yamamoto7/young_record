@@ -1,1 +1,26 @@
 カートの中身一覧
+
+<table border="1">
+	
+</style>
+	<thead>
+		<tr>
+			<th>商品名</th>
+			<th>個数</th>
+			<th>価格</th>
+		</tr>
+	</thead>
+	<tbody>
+<% @items.each do |items| %>
+		<tr>
+			<td><%= items.name %></td>
+			<td><%= items.carts.count %></td>
+			<td><%= items.price %></td>
+		</tr>
+	</tbody>
+<% end -%>
+</table>
+
+小計<br>
+
+<%= link_to "レジに進む",  users_carts_buy_path %>
