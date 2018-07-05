@@ -5,9 +5,10 @@ class ItemsController < ApplicationController
 	def index
 		@items = Array.new(Item.search(params[:search]))
 
+		genre_id = params[:genre].to_i
 		if genre_id != 0
 			@items.each do |f|
-				if !f.items_genres.exists?(genre_id: params[:genre].to_i)
+				if !f.items_genres.exists?(genre_id: genre_id)
 					@items.delete(f)
 				end
 			end
