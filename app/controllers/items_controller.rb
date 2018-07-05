@@ -3,7 +3,15 @@ class ItemsController < ApplicationController
 		
 	end
 	def index
-		@items = Item.search(params[:search])
+		@items = Array.new(Item.search(params[:search]))
+
+		if genre_id != 0
+			@items.each do |f|
+				if !f.items_genres.exists?(genre_id: params[:genre].to_i)
+					@items.delete(f)
+				end
+			end
+		end
 	end
 	def show
 		@item = Item.find(params[:id])
