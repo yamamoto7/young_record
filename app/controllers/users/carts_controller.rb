@@ -2,7 +2,8 @@ class Users::CartsController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
-		@items =Item.all
+		@carts = Cart.all
+		@carts = current_user.carts
 	end
 	def buy
 		
@@ -28,6 +29,12 @@ class Users::CartsController < ApplicationController
 			cart.save
 		end
 		redirect_to root_path
+	end
+
+	def destroy
+		@cart = Cart.find(params[:id])
+		@cart.destroy
+		redirect_to users_carts_path
 	end
 
 
