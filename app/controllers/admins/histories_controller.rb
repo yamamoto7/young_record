@@ -9,11 +9,11 @@ class Admins::HistoriesController < ApplicationController
 	end
 
 	def show
-		@history = History.find(oarams[:id])
+		@history = History.find(params[:id])
 	end
 
 	def update
-		@history = History.find(oarams[:id])
+		@history = History.find(params[:id])
 		@history.update(history_params)
 		redirect_to admins_history_path(@history.id)
 	end

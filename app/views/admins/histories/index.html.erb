@@ -12,7 +12,7 @@
                 <td><%= h.created_at.strftime('%Y/%m/%d') %></td>
                 <td><%= h.created_at.strftime('%H:%M') %></td>
                 <td>
-                    <%= form_tag(admins_history_path, method: "patch") do %>
+                    <%= form_tag(admins_history_path(h), method: "patch") do %>
                         <%= select_tag :status, options_for_select(History.statuses), include_blank: true %>
                         <%= submit_tag "変更を保存" %>
                     <% end %>
@@ -22,5 +22,4 @@
             </tr>
         <% end %>
     </table>
-    <input type="submit" value="更新">
 </div>
