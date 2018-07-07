@@ -12,9 +12,9 @@
                 <td><%= h.created_at.strftime('%Y/%m/%d') %></td>
                 <td><%= h.created_at.strftime('%H:%M') %></td>
                 <td>
-                    <%= form_tag(admins_history_path(h), method: "patch") do %>
-                        <%= select_tag :status, options_for_select(History.statuses), include_blank: true %>
-                        <%= submit_tag "変更を保存" %>
+                    <%= form_for(h, url: admins_history_path(h), method: :patch) do |f| %>
+                        <%= f.select :status, [["1.準備中", 1], ["2.発送中", 2], ["3.発送済", 3]], prompt: "1.準備中", selected: h.status %>
+                        <%= f.submit "変更を保存" %>
                     <% end %>
                 </td>
                 <td><%= link_to h.user.name_char, admins_user_path(h.user_id) %></td>
