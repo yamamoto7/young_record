@@ -1,50 +1,48 @@
 <!-- ユーザー履歴詳細 -->
 
 <div class="wrapper">
-    <% @history.each do |h| %>
-    	<h1>商品情報</h1>
-        <%= attachment_image_tag h.item, :image, :fill, 200, 200 %>
-        <table>
-            <tr>
-                <td>注文日</td>
-                <td><%= h.created_at.strftime('%Y/%m/%d %H:%M') %></td>
-            </tr>
-            <tr>
-                <td>合計</td>
-                <td><%= h.sum %></td>
-            </tr>
-            <tr>
-                <td>商品名</td>
-                <td><%= h.item.name %></td>
-            </tr>
-            <tr>
-                <td>アーティスト名</td>
-                <td><%= h.item.artist_name %></td>
-            </tr>
-            <tr>
-                <td>レーベル名</td>
-                <td><%= h.item.label_name %></td>
-            </tr>
-        </table>
+	<h1>商品情報</h1>
+    <%= attachment_image_tag @history.items, :image, :fill, 200, 200 %>
+    <table>
+        <tr>
+            <td>注文日</td>
+            <td><%= @history.created_at.strftime('%Y/%m/%d %H:%M') %></td>
+        </tr>
+        <tr>
+            <td>合計</td>
+            <td><%= @history.sum %></td>
+        </tr>
+        <tr>
+            <td>商品名</td>
+            <td><%= @history.items.name %></td>
+        </tr>
+        <tr>
+            <td>アーティスト名</td>
+            <td><%= @history.item.artist_name %></td>
+        </tr>
+        <tr>
+            <td>レーベル名</td>
+            <td><%= @history.item.label_name %></td>
+        </tr>
+    </table>
 
-        <h1>お客様情報</h1>
-        <table>
-            <tr>
-                <td>氏名</td>
-                <td><%= link_to h.users.name_char, admins_user_path(h.user_id) %></td>
-            </tr>
-            <tr>
-                <td>電話番号</td>
-                <td><%= h.users.tell %></td>
-            </tr>
-            <tr>
-                <td>郵便番号</td>
-                <td><%= h.user_post %></td>
-            </tr>
-            <tr>
-                <td>住所</td>
-                <td><%= h.user_address %></td>
-            </tr>
-        </table>
-    <% end %>
+    <h1>お客様情報</h1>
+    <table>
+        <tr>
+            <td>氏名</td>
+            <td><%= link_to @history.users.name_char, admins_user_path(@history.user_id) %></td>
+        </tr>
+        <tr>
+            <td>電話番号</td>
+            <td><%= @history.users.tell %></td>
+        </tr>
+        <tr>
+            <td>郵便番号</td>
+            <td><%= @history.user_post %></td>
+        </tr>
+        <tr>
+            <td>住所</td>
+            <td><%= @history.user_address %></td>
+        </tr>
+    </table>
 </div>
