@@ -11,12 +11,12 @@
 		</tr>
 	</thead>
 	<tbody>
-<% @carts.each do |items| %>
+<% @carts.each do |cart| %>
 		<tr>
-			<td></td>
-			<td><%= items.count %></td>
-			<td></td>
-			<td><%= link_to "削除", users_cart_path(items), method: :delete %></td>
+			<td><%= cart.item.name %></td>
+			<td><%= cart.count %></td>
+			<td><%= cart.item.price %></td>
+			<td><%= link_to "商品を削除", users_cart_path(cart), method: :delete %></td>
 		</tr>
 	</tbody>
 <% end -%>
