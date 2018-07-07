@@ -13,9 +13,9 @@
 	<tbody>
 <% @carts.each do |cart| %>
 		<tr>
-			<td></td>
+			<td><%= cart.item.name %></td>
 			<td><%= cart.count %></td>
-			<td></td>
+			<td><%= cart.item.price %></td>
 			<td><%= link_to "商品を削除", users_cart_path(cart), method: :delete %></td>
 		</tr>
 	</tbody>
