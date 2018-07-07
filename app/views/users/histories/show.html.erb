@@ -2,39 +2,43 @@
 
 <div class="wrapper">
 	<h1>商品情報</h1>
-    <%= attachment_image_tag @history.items, :image, :fill, 200, 200 %>
+
+    <h3>注文日</h3>
+    <%= @history.created_at.strftime('%Y/%m/%d %H:%M') %>
+
+    <h3>合計</h3>
+    <%= @history.sum %>
+    <br>
+    <br>
+
     <table>
         <tr>
-            <td>注文日</td>
-            <td><%= @history.created_at.strftime('%Y/%m/%d %H:%M') %></td>
+            <th>画像</th>
+            <th>商品名</th>
+            <th>アーティスト名</th>
+            <th>レーベル名</th>
         </tr>
+        <% @history.items.each do |h| %>
         <tr>
-            <td>合計</td>
-            <td><%= @history.sum %></td>
+            <td><%= attachment_image_tag h, :image, :fill, 100, 100 %></td>
+            <td><%= h.name %></td>
+            <td><%= h.artist_name %></td>
+            <td><%= h.label_name %></td>
         </tr>
-        <tr>
-            <td>商品名</td>
-            <td><%= @history.items.name %></td>
-        </tr>
-        <tr>
-            <td>アーティスト名</td>
-            <td><%= @history.item.artist_name %></td>
-        </tr>
-        <tr>
-            <td>レーベル名</td>
-            <td><%= @history.item.label_name %></td>
-        </tr>
+        <% end %>
     </table>
+    <br>
+    <br>
 
     <h1>お客様情報</h1>
     <table>
         <tr>
             <td>氏名</td>
-            <td><%= link_to @history.users.name_char, admins_user_path(@history.user_id) %></td>
+            <td><%= link_to @history.user.name_char, admins_user_path(@history.user_id) %></td>
         </tr>
         <tr>
             <td>電話番号</td>
-            <td><%= @history.users.tell %></td>
+            <td><%= @history.user.tell %></td>
         </tr>
         <tr>
             <td>郵便番号</td>
