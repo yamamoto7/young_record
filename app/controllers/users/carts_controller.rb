@@ -29,7 +29,7 @@ class Users::CartsController < ApplicationController
 			item.update(item_params)
 			cart.save
 		end
-		redirect_to root_path
+		redirect_to users_carts_path
 	end
 
 	def destroy
