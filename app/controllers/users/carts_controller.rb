@@ -5,6 +5,7 @@ class Users::CartsController < ApplicationController
 		@carts = Cart.all
 		@carts = current_user.carts
 	end
+
 	def buy
 		
 	end

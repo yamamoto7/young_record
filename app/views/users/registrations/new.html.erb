@@ -21,7 +21,7 @@
     </div>
     <div class="field">
       <%= f.label :携帯番号 %><br />
-      <%= f.text_field :tell, autofocus: true, autocomplete: "tell" %>
+      <%= f.text_field :tell, autofocus: true, autocomplete: "tell", :placeholder => "ハイフンは必要ないです" %>
     </div>
 
     <div class="field">
@@ -30,8 +30,18 @@
     </div>
 
     <div class="field">
+      <%= f.label :都道府県 %><br />
+      <%= f.text_field :address_prefecture, autofocus: true, autocomplete: "address_prefecture" %>
+    </div>
+
+    <div class="field">
       <%= f.label :住所 %><br />
-      <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
+      <%= f.text_field :address_city, autofocus: true, autocomplete: "address_city" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :建物 %><br />
+      <%= f.text_field :address_building, autofocus: true, autocomplete: "address_building" %>
     </div>
 
     <div class="field">
