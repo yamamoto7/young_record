@@ -12,7 +12,11 @@
             <tr>
                 <td><%= h.created_at.strftime('%Y/%m/%d %H:%M') %></td>
                 <td><%= h.sum %></td>
-                <td><%= h.items.name %></td>
+                <td>
+                    <% h.items.each do |i| %>
+                        <%= i.name %>
+                    <% end %>
+                </td>
                 <td>
                     <% if h.status %>
                         <% if h.status == 1 %>

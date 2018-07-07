@@ -12,7 +12,7 @@ class Item < ApplicationRecord
   has_many :carts
 	accepts_nested_attributes_for :cds, allow_destroy: true
 	# accepts_nested_attributes_for :songs, allow_destroy: true
-def self.search(search) #ここでのself.はItem.を意味する
+  def self.search(search) #ここでのself.はItem.を意味する
     if search
       where(['name LIKE ?', "%#{search}%"]) #検索とnameの部分一致を表示。Item.は省略
     else
