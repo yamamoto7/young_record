@@ -1,9 +1,9 @@
 <div class="wrapper">
     <p><%= @history.created_at.strftime('%Y/%m/%d %H:%M') %></p>
     <p>発送ステータス</p>
-    <%= form_tag(admins_history_path(@history), method: "patch") do %>
-        <%= select_tag :status, options_for_select(History.statuses), include_blank: true %>
-        <%= submit_tag "更新" %>
+    <%= form_for(@history, url: admins_history_path(@history), method: :patch) do |f| %>
+        <%= f.select :status, [["1.準備中", 1], ["2.発送中", 2], ["3.発送済", 3]], prompt: "1.準備中", selected: @history.status %>
+        <%= f.submit "変更を保存" %>
     <% end %>
     <br>
 
