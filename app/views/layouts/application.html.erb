@@ -14,6 +14,8 @@
         <div class="header-btn">
 	        <% if current_user %>
     	        <a href="/users/carts" class="header-btn-item">カート</a>
+              <%= link_to 'マイページ', users_path, class: 'header-btn-item header-link' %>
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'header-btn-item header-link' %>
             <% else %>
         	    <a href="/users/sign_in" class="header-btn-item">login</a>
             	<a href="/users/sign_up" class="header-btn-item">sign up</a>
