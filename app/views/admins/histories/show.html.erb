@@ -22,8 +22,16 @@
             <td><%= @history.user_post %></td>
         </tr>
         <tr>
+            <td>都道府県</td>
+            <td><%= @history.user.address_prefecture %></td>
+        </tr>
+        <tr>
             <td>住所</td>
-            <td><%= @history.user_address %></td>
+            <td><%= @history.user.address_city %></td>
+        </tr>
+        <tr>
+            <td>建物</td>
+            <td><%= @history.user.address_building %></td>
         </tr>
     </table>
 </div>

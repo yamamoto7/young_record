@@ -4,7 +4,7 @@
             <th>日付</th>
             <th>時間</th>
             <th>発送ステータス</th>
-            <th>氏名</th>
+            <th>ID</th>
             <th></th>
         </tr>
         <% @histories.each do |h| %>
@@ -17,7 +17,7 @@
                         <%= f.submit "変更を保存" %>
                     <% end %>
                 </td>
-                <td><%= link_to h.user.name_char, admins_user_path(h.user_id) %></td>
+                <td><%= link_to h.user_id, admins_user_path(h.user_id) %></td>
                 <td><%= link_to "詳細", admins_history_path(h.id) %></td>
             </tr>
         <% end %>
