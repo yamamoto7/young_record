@@ -34,19 +34,35 @@
     <table>
         <tr>
             <td>氏名</td>
-            <td><%= link_to @history.user.name_char, admins_user_path(@history.user_id) %></td>
+            <td><%= link_to @history.user.name_char, users_path %></td>
+        </tr>
+        <tr>
+            <td>メール</td>
+            <td><%= @history.user.email %></td>
         </tr>
         <tr>
             <td>電話番号</td>
             <td><%= @history.user.tell %></td>
         </tr>
         <tr>
+            <td><br></td>
+            <td><br></td>
+        </tr>
+        <tr>
             <td>郵便番号</td>
             <td><%= @history.user_post %></td>
         </tr>
         <tr>
+            <td>都道府県</td>
+            <td><%= @history.user.address_prefecture %></td>
+        </tr>
+        <tr>
             <td>住所</td>
-            <td><%= @history.user_address %></td>
+            <td><%= @history.user.address_city %></td>
+        </tr>
+        <tr>
+            <td>建物</td>
+            <td><%= @history.user.address_building %></td>
         </tr>
     </table>
 </div>

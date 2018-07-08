@@ -9,10 +9,23 @@
   </head>
 
   <body>
-  	<header>
-        <a href="/" class="header-logo">LOGO</a>
-        <div class="header-btn">
-	        <% if current_user %>
+    <% if current_admin %>
+      <header id="admin-header">
+          <%= link_to 'Young Record', root_path, class: 'header-logo' %>
+          <div class="header-btn">
+            <%= link_to 'アイテム作成', new_admins_item_path, class: 'header-btn-item header-link' %>
+            <%= link_to 'アイテム一覧', admins_items_path, class: 'header-btn-item header-link' %>
+            <%= link_to 'ジャンル一覧', admins_genre_index_path, class: 'header-btn-item header-link' %>
+            <%= link_to 'ユーザー一覧', admins_users_path, class: 'header-btn-item header-link' %>
+            <%= link_to '履歴一覧', admins_histories_path, class: 'header-btn-item header-link' %>
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'header-btn-item header-link' %>
+          </div>
+      </header>
+    <% else %>
+    	<header>
+          <%= link_to 'Young Record', root_path, class: 'header-logo' %>
+          <div class="header-btn">
+  	        <% if current_user %>
     	        <a href="/users/carts" class="header-btn-item">カート</a>
               <%= link_to 'マイページ', users_path, class: 'header-btn-item header-link' %>
               <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'header-btn-item header-link' %>
@@ -20,8 +33,9 @@
         	    <a href="/users/sign_in" class="header-btn-item">login</a>
             	<a href="/users/sign_up" class="header-btn-item">sign up</a>
             <% end %>
-        </div>
-    </header>
+          </div>
+      </header>
+    <% end %>
     <main>
       <%= yield %>
 	  </main>
