@@ -8,5 +8,5 @@ Tell:<%= current_user.tell %><br>
 email: <%= current_user.email %><br>
 
 <%= link_to "編集",  edit_user_registration_path %><br>
-<%= link_to "購入履歴", "#" %><br>
+<%= link_to "購入履歴", users_histories_path %><br>
 <%= link_to "退会", root_path, method: :delete, data: { confirm: '本当に退会しますか?しないで、欲しいな。。。。' } %><br>
