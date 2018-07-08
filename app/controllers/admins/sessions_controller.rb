@@ -3,10 +3,14 @@
 class Admins::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
-  def after_sign_in_path_for(resource)
-    admins_items_path
-  end
-
+  # GET /resource/sign_in
+  def after_sign_in_path_for(resource_or_scope)
+    if resource_or_scope.is_a?(Admin)
+      admins_items_path
+    else
+      root_path
+    end
+  end  
   # GET /resource/sign_in
   # def new
   #   super
