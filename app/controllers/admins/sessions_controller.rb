@@ -10,7 +10,7 @@ class Admins::SessionsController < Devise::SessionsController
     else
       root_path
     end
-  end  
+  end
   # GET /resource/sign_in
   # def new
   #   super
