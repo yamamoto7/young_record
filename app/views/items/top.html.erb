@@ -1,47 +1,30 @@
-トップページ
-<br><br>
-<%= link_to 'root', root_path %><br>
-<%= link_to 'item index', items_path %><br>
-item show, item_path(id)<br>
-<br>
 
 
-
-
-<%= link_to 'admin sign in', new_admin_session_path %><br>
-<%= link_to 'admin sign up', new_admin_registration_path %><br>
-<%= link_to 'admin logout', destroy_admin_session_path, method: :delete %><br>
-<br>
-
-
-<%= link_to 'user sign in', new_user_session_path %><br>
-<%= link_to 'user sign up', new_user_registration_path %><br>
-<%= link_to ' logout', destroy_user_session_path, method: :delete %>
-<%= link_to 'user mypage', users_path %><br>
-退会確認ページ<br>
-<br>
-
-<%= link_to 'user history index', users_histories_path %><br>
-show, users_history_path<br>
-<br>
-
-<%= link_to 'user cart index', users_carts_path %><br>
-<%= link_to 'user cart buy', users_carts_buy_path %><br>
-<%= link_to 'user cart thanks', users_carts_thanks_path %><br>
-<br>
-<%= link_to 'admin item index', admins_items_path %><br>
-<%= link_to 'admin item new', new_admins_item_path %><br>
-edit, edit_admins_item_path(id)<br>
-<br>
-
-<%= link_to 'admin user index', admins_users_path %><br>
-show, admins_user_path(id)<br>
-<br>
-
-<%= link_to 'admin history index', admins_histories_path %><br>
-show, admins_history_path(id)<br>
-<br>
-
-<%= link_to 'admin genre index', admins_genre_index_path %><br>
-show, admins_genre_path(id)<br>
-<br>
+<%= form_tag(items_search_path) do %>
+  <%= select_tag :genre, options_for_select(Genre.all.map {|i| [i.name, i.id] }), :include_blank => true %>
+  <%= text_field_tag :search %>
+  <%= submit_tag 'Search', :name => nil %>
+<% end %>
+        <h2><a href="">新着</a></h2>
+        <div class="items clearfix">
+        <% @new_items.each do |f| %>
+            <div class="items-item">
+                <%= link_to item_path(f) do %>
+                    <%= attachment_image_tag(f, :image, :fill, 100, 100, fallback: "no_image.jpg") %>
+                    <%= f.name %><br><%= f.artist_name %><br><%= f.price %>en
+                <% end %>
+            </div>
+        <% end %>
+        </div>
+    </main>
+    <script>
+        ityped.init('#top-text-el', {
+            strings:['J-POP', 'Rock', 'Music', 'R&B', 'Classic', 'Dance', 'Electronic'],
+            typeSpeed: 70,
+            backSpeed: 110,
+            startDelay: 200,
+            backDelay: 500,
+            showCursor: false,
+            loop: true
+        });
+    </script>

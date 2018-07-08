@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 	def top
-		
+		@new_items = Item.all.last(5)
 	end
 	def index
 		@items = Array.new(Item.search(params[:search]))
