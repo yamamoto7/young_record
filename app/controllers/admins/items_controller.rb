@@ -18,12 +18,12 @@ class Admins::ItemsController < ApplicationController
 	def update
 		item = Item.find(params[:id])
     	item.update(item_params)
-    	redirect_to root_path
+    	redirect_to admins_items_path
 	end
 	def create
 		item = Item.new(item_params)
 		item.save
-		redirect_to root_path
+		redirect_to admins_items_path
 	end
 
 	private
@@ -34,6 +34,5 @@ class Admins::ItemsController < ApplicationController
 			}],
 			items_genres_attributes: [:id, :genre_id, :item_id, :_destroy]
 			})
-		
 	end
 end

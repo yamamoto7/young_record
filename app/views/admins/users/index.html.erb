@@ -1,1 +1,33 @@
-ユーザー一覧
+<h2>ユーザー一覧</h2>
+
+<table>
+	<tr>
+		<th>ID</th>
+		<th>おなまえ（漢字</th>
+		<th>おなまえ（カタカナ）</th>
+		<th>メールアドレス</th>
+		<th>携帯番号</th>
+		<th>郵便番号</th>
+		<th>都道府県</th>
+		<th>住所</th>
+		<th>建物</th>
+	</tr>
+
+	<% @users.each do |u| %>
+	<tr>
+		<td>
+			<%= link_to u.id, admins_user_path(u) %>
+		</td>
+		<td>
+			<%= link_to u.name_char, admins_user_path(u) %>
+		</td>
+		<td><%= u.name_kana %></td>
+		<td><%= u.email %></td>
+		<td><%= u.tell %></td>
+		<td><%= u.post %></td>
+		<td><%= u.address_prefecture %></td>
+		<td><%= u.address_city %></td>
+		<td><%= u.address_building %></td>
+	</tr>
+	<% end %>
+</table>

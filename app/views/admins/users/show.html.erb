@@ -1,1 +1,51 @@
-ユーザー詳細
+<h2>ユーザー詳細</h2>
+<table>
+	<tr>
+		<th>ID</th>
+		<th>おなまえ（漢字</th>
+		<th>おなまえ（カタカナ）</th>
+		<th>メールアドレス</th>
+		<th>携帯番号</th>
+		<th>郵便番号</th>
+		<th>都道府県</th>
+		<th>住所</th>
+		<th>建物</th>
+	</tr>
+
+	<tr>
+		<td><%= @user.id %></td>
+		<td><%= @user.name_char %></td>
+		<td><%= @user.name_kana %></td>
+		<td><%= @user.email %></td>
+		<td><%= @user.tell %></td>
+		<td><%= @user.post %></td>
+		<td><%= @user.address_prefecture %></td>
+		<td><%= @user.address_city %></td>
+		<td><%= @user.address_building %></td>
+	</tr>
+</table>
+
+<h2>ユーザー履歴</h2>
+<table>
+    <tr>
+        <th>日付</th>
+        <th>時間</th>
+        <th>発送ステータス</th>
+        <th>ID</th>
+        <th></th>
+    </tr>
+    <% @histories.each do |h| %>
+        <tr>
+            <td><%= h.created_at.strftime('%Y/%m/%d') %></td>
+            <td><%= h.created_at.strftime('%H:%M') %></td>
+            <td>
+                <%= form_for(h, url: admins_history_path(h), method: :patch) do |f| %>
+                    <%= f.select :status, [["1.準備中", 1], ["2.発送中", 2], ["3.発送済", 3]], prompt: "1.準備中", selected: h.status %>
+                    <%= f.submit "変更を保存" %>
+                <% end %>
+            </td>
+            <td><%= link_to h.user_id, admins_user_path(h.user_id) %></td>
+            <td><%= link_to "詳細", admins_history_path(h.id) %></td>
+        </tr>
+    <% end %>
+</table>

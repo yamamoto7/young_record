@@ -38,6 +38,5 @@ class Users::HistoriesController < ApplicationController
 	# sum更新用
 	def history_params
 		params.permit(:sum)
-		
 	end
 end

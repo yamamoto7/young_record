@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     passwords:     'admins/passwords',
     registrations: 'admins/registrations'
   }
-  resource :admins, only: [:index]
+  get '/admins/index' => 'admins#index', as: 'admins_top'
   namespace :admins do
     resources :genre, only: [:index, :show, :create, :update]
     resources :histories, only: [:index, :show, :update]
