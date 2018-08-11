@@ -22,6 +22,16 @@
 <% end -%>
 </table>
 
+<% @carts.each do |cart| %>
+		<tr>
+			<td><%= cart.item.name %></td>
+			<td><%= cart.count %></td>
+			<td><%= cart.item.price %></td>
+			<td><%= link_to "商品を削除", users_cart_path(cart), method: :delete %></td>
+		</tr>
+	</tbody>
+<% end -%>
+
 小計<br>
 
 <%= link_to "レジに進む",  users_carts_buy_path %>
